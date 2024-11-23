@@ -1,0 +1,42 @@
+.aboutContainer {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutContainer h2 {
+   text-align: center;
+   font-family: 'poppins', 'san-serif';
+   font-weight: 700;
+   margin-bottom: 20px;
+}
+
+.aboutContainer p {
+    text-align: center;
+    color: var(--pri-clr);
+    font-family: var(--fontcrimps);
+    margin-bottom: 20px;
+    width: 600px;
+}
+
+.aboutButton {
+    font-family: var(--fontpops);
+    font-size: 14px;
+    background-color: var(--pri-clr);
+    color: #fff;
+    display: block;
+    max-width: max-content;
+    padding: 10px 36px;
+    border-radius: 18px;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .aboutContainer p {
+        width: 100%;
+    }
+    
+}
