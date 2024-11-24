@@ -6,8 +6,8 @@ const Footer = () => {
 
   return (
     <footer className="footer container">
-      <div className="footer-container">
-        <div className="footer-section">
+      <div className="footerContainer">
+        <div className="footerSection">
           <h3>Our Pages</h3>
           <ul>
             <li>
@@ -21,7 +21,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer-section">
+        <div className="footerSection">
           <h3>Tools</h3>
           <ul>
             <li>
@@ -29,7 +29,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer-section">
+        <div className="footerSection">
           <h3>Let's Connect</h3>
           <ul>
             <li>
@@ -41,7 +41,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footer-logo">
+        <div className="footerLogo">
           <img
             src={greenMortgageBlackLogo}
             className="img-fluid"
@@ -49,7 +49,7 @@ const Footer = () => {
           />
         </div>
       </div>
-      <div className="footer-note">
+      <div className="footerNote">
         <p>
           For information purposes only. This is not a commitment to lend or
           extend credit. Information and/or dates are subject to change without

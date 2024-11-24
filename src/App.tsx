@@ -6,32 +6,42 @@ import "./App.css";
 import DidYouKnow from "./components/didyouknow/DidYouKnow";
 import Testimonial from "./components/testimonial/Testimonial";
 import Footer from "./components/footer/Footer";
+import GetStartedRibbon from "./components/getstarted/GetStarted";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MortgageCalculator from "./components/mortgagecalculator/MortgageCalculator";
 
 function App() {
   return (
-    <>
-      <div>
-        <NavBar />
-      </div>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <About />
-      </div>
-      <div>
-        <HowItWorks />
-      </div>
-      <div>
-        <DidYouKnow />
-      </div>
-      <div>
-        <Testimonial />
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        {/* Route for the Mortgage Calculator with NavBar and Footer only */}
+        <Route
+          path="mortgage-calculator"
+          element={
+            <>
+              <MortgageCalculator />
+              <Footer />
+            </>
+          }
+        />
+        {/* Main route for the home page */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <About />
+              <HowItWorks />
+              <DidYouKnow />
+              <Testimonial />
+              <GetStartedRibbon />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

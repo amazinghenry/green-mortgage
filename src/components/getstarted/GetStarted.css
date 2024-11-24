@@ -1,0 +1,54 @@
+.getStartedRibbonContainer {
+    /* background: url('../../assets/getstartedbgimage.webp'), var(--pri-clr); */
+    background-color: #95B19F;
+    /* filter: grayscale(100%); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.getStartedGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.getStartedItem h4 {
+    color: #fff;
+    font-size: 2rem;
+    font-family: var(--fontcrimps);
+}
+
+.getStartedItem h5 {
+    color: #fff;
+    font-size: 2rem;
+    font-family: var(--fontpops);
+}
+
+.getStartedItem p {
+    color: #fff;
+    font-family: var(--fontcrimps);
+    margin-bottom: 20px;
+}
+
+.getStartedButton {
+    font-family: var(--fontpops);
+    font-size: 14px;
+    background-color: var(--pri-clr);
+    color: #fff;
+    display: block;
+    max-width: max-content;
+    padding: 10px 36px;
+    border-radius: 18px;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .getStartedGroup {
+        grid-template-columns: 1fr;
+    }
+    
+}

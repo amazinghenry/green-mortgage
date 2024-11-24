@@ -8,7 +8,7 @@
 
 .aboutContainer h2 {
    text-align: center;
-   font-family: 'poppins', 'san-serif';
+   font-family: var(--fontpops);
    font-weight: 700;
    margin-bottom: 20px;
 }

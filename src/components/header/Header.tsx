@@ -1,5 +1,6 @@
 import "./Header.css";
 import headerImage from "../../assets/greenmortgage-header-image.webp";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,9 +14,9 @@ const Header = () => {
             Experience clarity, connection and simplicity all the way to your
             new doorstep.
           </h2>
-          <a href="#" className="applyButton">
+          <Link to="/mortgage-calculator" className="applyButton">
             APPLY NOW
-          </a>
+          </Link>
         </div>
         <img src={headerImage} alt="" className="img-fluid headerImage" />
       </div>

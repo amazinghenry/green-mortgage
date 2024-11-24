@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import gmLogo from "../../assets/gm-logo.webp";
 
 const NavBar = () => {
   return (
@@ -12,7 +13,7 @@ const NavBar = () => {
         </div>
         <ul className="menu-items">
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
             <a href="#">About</a>
@@ -24,7 +25,10 @@ const NavBar = () => {
             <a href="#">Contact</a>
           </li>
         </ul>
-        <div className="logo">GM</div>
+
+        <a href="/">
+          <img src={gmLogo} alt="Logo" className=" logo img-fluid" />
+        </a>
       </div>
     </nav>
   );
