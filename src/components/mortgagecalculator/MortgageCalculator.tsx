@@ -11,7 +11,7 @@ const MortgageCalculator: React.FC = () => {
     return new Intl.NumberFormat("en-US").format(value);
   };
 
-  const isFormValid = loanAmount > 0 && interestRate > 0;
+  const isFormValid = Number(loanAmount) > 0 && Number(interestRate) > 0;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // Prevent form from refreshing the page
@@ -110,8 +110,8 @@ const MortgageCalculator: React.FC = () => {
                 Estimated Monthly Payment:
               </div>
               <div className="mortgageCalculatorResult">
-                &#8358; {monthlyPayment.toFixed(2)}
-                {formatNumber(monthlyPayment.toFixed(2))}
+                &#8358;
+                {formatNumber(parseFloat(monthlyPayment.toFixed(2)))}
               </div>
             </div>
           )}
