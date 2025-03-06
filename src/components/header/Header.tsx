@@ -7,12 +7,11 @@ const Header = () => {
     <header className="container-fluid">
       <div className="container headerGridContainer">
         <div>
-          <h1 className="headerTitle1">
-            Find the right loan to create your perfect home
-          </h1>
+          <h1 className="headerTitle1">Did you know?</h1>
           <h2 className="headerTitle2">
-            Experience clarity, connection and simplicity all the way to your
-            new doorstep.
+            Over 80% of Nigerians rely on personal savings or earnings to
+            finance home purchases due to the low penetration of mortgage
+            financing in the country.
           </h2>
           <Link to="/mortgage-calculator" className="applyButton">
             APPLY NOW

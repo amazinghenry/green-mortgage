@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import gmLogo from "../../assets/gm-logo.webp";
+import gmLogo from "../../assets/gmlogo-white.webp";
 
 const NavBar = () => {
   return (

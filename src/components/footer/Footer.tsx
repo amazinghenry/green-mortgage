@@ -1,5 +1,5 @@
 import "./Footer.css";
-import greenMortgageBlackLogo from "../../assets/greenmortgage-logo-black.webp";
+import greenMortgageBlackLogo from "../../assets/gmlogo-black.webp";
 
 const Footer = () => {
   const thisYear = new Date();

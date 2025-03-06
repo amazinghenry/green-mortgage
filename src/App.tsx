@@ -1,10 +1,10 @@
 import NavBar from "./components/navbar/NavBar";
 import Header from "./components/header/Header";
 import About from "./components/about/About";
-import HowItWorks from "./components/howitworks/HowItWorks";
+// import HowItWorks from "./components/howitworks/HowItWorks";
 import "./App.css";
 import DidYouKnow from "./components/didyouknow/DidYouKnow";
-import Testimonial from "./components/testimonial/Testimonial";
+// import Testimonial from "./components/testimonial/Testimonial";
 import Footer from "./components/footer/Footer";
 import GetStartedRibbon from "./components/getstarted/GetStarted";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -32,9 +32,9 @@ function App() {
             <>
               <Header />
               <About />
-              <HowItWorks />
+              {/* <HowItWorks /> */}
               <DidYouKnow />
-              <Testimonial />
+              {/* <Testimonial /> */}
               <GetStartedRibbon />
               <Footer />
             </>

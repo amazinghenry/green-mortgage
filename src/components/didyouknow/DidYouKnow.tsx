@@ -8,16 +8,19 @@ const DidYouKnow = () => {
         <div className="didYouKnowItem">
           <h2>Did you know?</h2>
           <h3>
-            Approximately 33% of all home buyers in 2021 were first-time buyers
+            Over 90% of homes in Nigeria are self-financed as high interest
+            rates, short loan tenures, and a lack of access to long-term funding
+            have made it difficult for Nigerians to secure mortgages.
           </h3>
           <p>
-            Whether you’re just starting the search or browsing for new
-            financial investments, our team goes Simply Mortgage to help you
-            achieve your goals with ease.
+            However, solutions like Green Mortgage are solving this problem by
+            offering affordable interest rates, flexible repayment plans, and
+            faster processing times, making homeownership a reality for more
+            Nigerians.
           </p>
-          <a href="#" className="didYouKnowButton">
+          {/* <a href="#" className="didYouKnowButton">
             GET TO KNOW US
-          </a>
+          </a> */}
         </div>
         <img
           src={homeOwner}

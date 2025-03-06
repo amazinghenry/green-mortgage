@@ -1,6 +1,6 @@
 .getStartedRibbonContainer {
     /* background: url('../../assets/getstartedbgimage.webp'), var(--pri-clr); */
-    background-color: #95B19F;
+    background-color: #64bf84;
     /* filter: grayscale(100%); */
     background-position: center;
     background-repeat: no-repeat;
@@ -8,29 +8,24 @@
 }
 
 .getStartedGroup {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     padding: 60px 20px;
 }
 
-.getStartedItem h4 {
+.getStartedGroup h4 {
     color: #fff;
     font-size: 2rem;
     font-family: var(--fontcrimps);
+    text-align: center;
 }
 
-.getStartedItem h5 {
-    color: #fff;
-    font-size: 2rem;
-    font-family: var(--fontpops);
-}
-
-.getStartedItem p {
+.getStartedGroup p {
     color: #fff;
     font-family: var(--fontcrimps);
-    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    text-align: center;
 }
 
 .getStartedButton {
@@ -43,12 +38,11 @@
     padding: 10px 36px;
     border-radius: 18px;
     text-decoration: none;
-    margin-bottom: 40px;
+    margin: 20px auto;
 }
 
 @media screen and (max-width: 768px) {
-    .getStartedGroup {
-        grid-template-columns: 1fr;
-    }
-    
+    .getStartedGroup p {
+        width: 100%;
+    }   
 }

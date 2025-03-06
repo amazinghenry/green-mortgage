@@ -1,5 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --pri-clr: #457D58;
+  --pri-clr: #3A8E4F;
   --grey1-clr: #F2F2F2;
   --grey2-clr: #D9D9D9;
   --grey3-clr: #D9D9D9;
