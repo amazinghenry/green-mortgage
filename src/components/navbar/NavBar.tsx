@@ -16,14 +16,15 @@ const NavBar = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="/mortgage-calculator">Calculator</a>
           </li>
+          {/* <li>
           <li>
             <a href="#">Testimonial</a>
           </li>
           <li>
             <a href="#">Contact</a>
-          </li>
+          </li> */}
         </ul>
 
         <a href="/">
