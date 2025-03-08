@@ -1,5 +1,6 @@
 import "./Footer.css";
 import greenMortgageBlackLogo from "../../assets/gmlogo-black.webp";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const thisYear = new Date();
@@ -25,7 +26,10 @@ const Footer = () => {
           <h3>Tools</h3>
           <ul>
             <li>
-              <a href="#">Calculator</a>
+              <Link to="/mortgage-calculator">Calculator</Link>
+            </li>
+            <li>
+              <Link to="/mortgage-checklist">Check List</Link>
             </li>
           </ul>
         </div>

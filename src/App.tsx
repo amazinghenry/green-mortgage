@@ -1,10 +1,9 @@
 import NavBar from "./components/navbar/NavBar";
 import Header from "./components/header/Header";
 import About from "./components/about/About";
-// import HowItWorks from "./components/howitworks/HowItWorks";
 import "./App.css";
 import DidYouKnow from "./components/didyouknow/DidYouKnow";
-// import Testimonial from "./components/testimonial/Testimonial";
+import MortgageChecklist from "./components/mortgagechecklist/MortgageChecklist";
 import Footer from "./components/footer/Footer";
 import GetStartedRibbon from "./components/getstarted/GetStarted";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -25,6 +24,15 @@ function App() {
             </>
           }
         />
+        <Route
+          path="mortgage-checklist"
+          element={
+            <>
+              <MortgageChecklist />
+            </>
+          }
+        />
+
         {/* Main route for the home page */}
         <Route
           path="/"
@@ -32,9 +40,7 @@ function App() {
             <>
               <Header />
               <About />
-              {/* <HowItWorks /> */}
               <DidYouKnow />
-              {/* <Testimonial /> */}
               <GetStartedRibbon />
               <Footer />
             </>
