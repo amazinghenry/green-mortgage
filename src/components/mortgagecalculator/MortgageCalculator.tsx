@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./MortgageCalculator.css";
 
 const MortgageCalculator = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -11,6 +12,9 @@ const MortgageCalculator = () => {
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
   const [employmentStatus, setEmploymentStatus] = useState("Employed");
+  const [propertyTitle, setPropertyTitle] = useState("");
+  const [propertyLocation, setPropertyLocation] = useState("");
+  const [propertyType, setPropertyType] = useState("");
   const [propertyCost, setPropertyCost] = useState("");
   const [equity, setEquity] = useState(0);
   const [principal, setPrincipal] = useState(0);
@@ -23,6 +27,7 @@ const MortgageCalculator = () => {
     null
   );
   const [error, setError] = useState<string | null>(null);
+  const [showChecklist, setShowChecklist] = useState(false);
 
   // Funding Source Change
   const handleFundingSourceChange = (
@@ -67,6 +72,8 @@ const MortgageCalculator = () => {
     setEquity(calculatedEquity);
     setPrincipal(calculatedPrincipal);
   };
+
+  //
 
   // Salary Change
   const handleSalaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -158,6 +165,7 @@ const MortgageCalculator = () => {
     const qualificationMsg =
       qualification1 > 40 ? "Not Qualified" : "Qualified";
     setQualificationStatus(qualificationMsg);
+    setShowChecklist(true);
 
     // google sheets
     if (formRef.current) {
@@ -182,205 +190,273 @@ const MortgageCalculator = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Mortgage Calculator</h2>
-      {/* Full Name */}
-      <form onSubmit={calculatePMT} ref={formRef} name="submit-to-google-sheet">
-        <div className="mb-3">
-          <label className="form-label">Full Name</label>
-          <input
-            type="text"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            className="form-control"
-            name="fullName"
-            required
-          />
-        </div>
+    <div className="mortgage-calculator-container">
+      <div className="container">
+        <h2 className="mb-4 mortgage-calculation-title">
+          How much house can I afford?
+        </h2>
+        <p className="mortgage-calculation-description">
+          Enter the price of the home, your down payment and few details about
+          your new home and loan terms to estimate your monthly payment
+          breakdown
+        </p>
 
-        {/* Email */}
-        <div className="mb-3">
-          <label className="form-label">Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
-            name="email"
-            required
-          />
-        </div>
+        <form
+          onSubmit={calculatePMT}
+          ref={formRef}
+          name="submit-to-google-sheet"
+        >
+          <div className="personal-details">
+            <div className="mb-3">
+              {/* Full Name */}
+              <label className="form-label">Full Name</label>
+              <input
+                type="text"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                className="form-control"
+                name="fullName"
+                required
+              />
+            </div>
 
-        {/* Phone Number */}
-        <div className="mb-3">
-          <label className="form-label">Phone Number</label>
-          <input
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="form-control"
-            name="phone"
-            required
-          />
-        </div>
+            {/* Email */}
+            <div className="mb-3">
+              <label className="form-label">Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-control"
+                name="email"
+                required
+              />
+            </div>
 
-        {/* Date of Birth */}
+            {/* Phone Number */}
+            <div className="mb-3">
+              <label className="form-label">Phone Number</label>
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="form-control"
+                name="phone"
+                required
+              />
+            </div>
 
-        <div className="mb-3">
-          <label className="form-label">Date of Birth</label>
-          <input
-            type="date"
-            value={dob}
-            onChange={(e) => {
-              setDob(e.target.value);
-              validateInput(); // Validate immediately when the user selects a date
-            }}
-            // className={`form-control ${error ? "is-invalid" : ""}`}
-            className="form-control"
-            name="dob"
-            required
-          />
-        </div>
-        {error && <div className="invalid-feedback">{error}</div>}
+            {/* Date of Birth */}
 
-        {/* Employment Status */}
-        <div className="mb-3">
-          <label className="form-label">Employment Status</label>
-          <select
-            value={employmentStatus}
-            onChange={(e) => setEmploymentStatus(e.target.value)}
-            className="form-select"
-            name="employmentStatus"
-            required
-          >
-            <option value="Employed">Employed</option>
-            <option value="Self-Employed">Self-Employed</option>
-            <option value="Unemployed">Unemployed</option>
-          </select>
-        </div>
+            <div className="mb-3">
+              <label className="form-label">Date of Birth</label>
+              <input
+                type="date"
+                value={dob}
+                onChange={(e) => {
+                  setDob(e.target.value);
+                  validateInput(); // Validate immediately when the user selects a date
+                }}
+                // className={`form-control ${error ? "is-invalid" : ""}`}
+                className="form-control"
+                name="dob"
+                required
+              />
+            </div>
+            {error && <div className="invalid-feedback">{error}</div>}
 
-        {/* Funding Source */}
-        <div className="mb-3">
-          <label className="form-label">Funding Source</label>
-          <select
-            value={fundingSource}
-            onChange={handleFundingSourceChange}
-            className="form-select"
-            name="fundingSource"
-            required
-          >
-            <option value="FHF">FHF </option> {/* 16.2% Interest */}
-            <option value="PMI">PMI </option> {/* 28.5% Interest */}
-          </select>
-        </div>
-
-        {/* Property Cost */}
-        <div className="mb-3">
-          <label className="form-label">Property Cost ₦</label>
-          <input
-            inputMode="numeric"
-            value={propertyCost}
-            onChange={handlePropertyCostChange}
-            className="form-control"
-            name="propertyCost"
-            required
-          />
-        </div>
-
-        {/* Display Calculated Equity */}
-        <div className="mb-3">
-          <label className="form-label">
-            Equity ({fundingSource === "PMI" ? "30%" : "10%"} of Property Cost)
-          </label>
-          <input
-            type="text"
-            value={equity.toLocaleString()}
-            className="form-control"
-            disabled
-          />
-          <input type="hidden" name="equity" value={equity} />
-        </div>
-
-        {/* Display Calculated Principal Loan Amount */}
-        <div className="mb-3">
-          <label className="form-label">Principal Loan Amount ₦</label>
-          <input
-            type="text"
-            value={principal.toLocaleString()}
-            className="form-control"
-            disabled
-          />
-          <input type="hidden" name="principal" value={principal} />
-        </div>
-
-        {/* Monthly Salary */}
-        <div className="mb-3">
-          <label className="form-label">Monthly Salary ₦</label>
-          <input
-            inputMode="numeric"
-            value={monthlySalary}
-            onChange={handleSalaryChange}
-            className="form-control"
-            name="monthlySalary"
-            required
-          />
-        </div>
-
-        {/* Other Income */}
-        <div className="mb-3">
-          <label className="form-label">Other Monthly Income ₦</label>
-          <input
-            inputMode="numeric"
-            value={otherIncome}
-            onChange={handleOtherIncomeChange}
-            className="form-control"
-            name="otherIncome"
-            required
-          />
-        </div>
-
-        {/* Loan Period (Slider) */}
-        <div className="mb-3">
-          <label className="form-label">Loan Period (Months): {period}</label>
-          <input
-            type="range"
-            min="12"
-            max="240"
-            step="12"
-            value={period}
-            onChange={(e) => setPeriod(Number(e.target.value))}
-            className="form-range"
-            name="period"
-            required
-          />
-        </div>
-
-        {/* Display Monthly Payment */}
-        {monthlyPayment !== null && !error && (
-          <div className="alert alert-success mt-4" role="alert">
-            <strong>Monthly Payment:</strong> ₦
-            {Number(monthlyPayment).toLocaleString("en-NG", {
-              minimumFractionDigits: 2,
-            })}
+            {/* Employment Status */}
+            <div className="mb-3">
+              <label className="form-label">Employment Status</label>
+              <select
+                value={employmentStatus}
+                onChange={(e) => setEmploymentStatus(e.target.value)}
+                className="form-select"
+                name="employmentStatus"
+                required
+              >
+                <option value="Employed">Employed</option>
+                <option value="Self-Employed">Self-Employed</option>
+                <option value="Unemployed">Unemployed</option>
+              </select>
+            </div>
           </div>
-        )}
-        {qualificationStatus && (
-          <div
-            className={`alert mt-4 ${
-              qualificationStatus.includes("Not")
-                ? "alert-danger"
-                : "alert-success"
-            }`}
-            role="alert"
-          >
-            <strong>Qualification Status:</strong> {qualificationStatus}
-          </div>
-        )}
 
-        {/* calculate button */}
-        {error && <div className="alert alert-danger">{error}</div>}
-        <button className="btn btn-primary w-100">Calculate</button>
-      </form>
+          <div className="property-details">
+            {/* propertyTitle */}
+            <div className="mb-3">
+              <label className="form-label">Property Title</label>
+              <input
+                value={propertyTitle}
+                onChange={(e) => setPropertyTitle(e.target.value)}
+                type="text"
+                className="form-control"
+                name="propertyTitle"
+                required
+              />
+            </div>
+
+            {/* propertyLocation */}
+            <div className="mb-3">
+              <label className="form-label">Property Location </label>
+              <input
+                value={propertyLocation}
+                onChange={(e) => setPropertyLocation(e.target.value)}
+                type="text"
+                className="form-control"
+                name="propertyLocation"
+                required
+              />
+            </div>
+
+            {/* propertyType */}
+            <div className="mb-3">
+              <label className="form-label">Property Type </label>
+              <input
+                value={propertyType}
+                onChange={(e) => setPropertyType(e.target.value)}
+                type="text"
+                className="form-control"
+                name="propertyType"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="finance-details">
+            {/* Funding Source */}
+            <div className="mb-3">
+              <label className="form-label">Funding Source</label>
+              <select
+                value={fundingSource}
+                onChange={handleFundingSourceChange}
+                className="form-select"
+                name="fundingSource"
+                required
+              >
+                <option value="FHF">FHF - Loans below 70M </option>
+                {/* 16.2% Interest */}
+                <option value="PMI">PMI - Loans above 70M</option>
+                {/* 28.5% Interest */}
+              </select>
+            </div>
+
+            {/* Property Cost */}
+            <div className="mb-3">
+              <label className="form-label">Property Cost ₦</label>
+              <input
+                inputMode="numeric"
+                value={propertyCost}
+                onChange={handlePropertyCostChange}
+                className="form-control input-numeric"
+                name="propertyCost"
+                required
+              />
+            </div>
+
+            {/* Display Calculated Equity */}
+            <div className="mb-3">
+              <label className="form-label">
+                {/* Equity ({fundingSource === "PMI" ? "30%" : "10%"} of Property Cost) */}
+                Equity
+              </label>
+              <input
+                type="text"
+                value={equity.toLocaleString()}
+                className="form-control"
+                disabled
+              />
+              <input type="hidden" name="equity" value={equity} />
+            </div>
+
+            {/* Display Calculated Principal Loan Amount */}
+            <div className="mb-3">
+              <label className="form-label">Principal Loan Amount ₦</label>
+              <input
+                type="text"
+                value={principal.toLocaleString()}
+                className="form-control"
+                disabled
+              />
+              <input type="hidden" name="principal" value={principal} />
+            </div>
+
+            {/* Monthly Salary */}
+            <div className="mb-3">
+              <label className="form-label">Monthly Salary ₦</label>
+              <input
+                inputMode="numeric"
+                value={monthlySalary}
+                onChange={handleSalaryChange}
+                className="form-control input-numeric"
+                name="monthlySalary"
+                required
+              />
+            </div>
+
+            {/* Other Income */}
+            <div className="mb-3">
+              <label className="form-label">Other Monthly Income ₦</label>
+              <input
+                inputMode="numeric"
+                value={otherIncome}
+                onChange={handleOtherIncomeChange}
+                className="form-control input-numeric"
+                name="otherIncome"
+                required
+              />
+            </div>
+
+            {/* Loan Period (Slider) */}
+            <div className="mb-3">
+              <label className="form-label">Loan Period: {period} Months</label>
+              <input
+                type="range"
+                min="12"
+                max="240"
+                step="12"
+                value={period}
+                onChange={(e) => setPeriod(Number(e.target.value))}
+                className="form-range"
+                name="period"
+                required
+              />
+            </div>
+          </div>
+
+          {/* Display Monthly Payment */}
+          {monthlyPayment !== null && !error && (
+            <div className="alert alert-success mt-4" role="alert">
+              <strong>Monthly Payment:</strong> ₦
+              {Number(monthlyPayment).toLocaleString("en-NG", {
+                minimumFractionDigits: 2,
+              })}
+            </div>
+          )}
+          {qualificationStatus && (
+            <div
+              className={`alert mt-4 ${
+                qualificationStatus.includes("Not")
+                  ? "alert-danger"
+                  : "alert-success"
+              }`}
+              role="alert"
+            >
+              <strong>Qualification Status:</strong> {qualificationStatus}
+            </div>
+          )}
+
+          {/* calculate button */}
+          {error && <div className="alert alert-danger">{error}</div>}
+          <button className="calc-button w-100">Calculate</button>
+        </form>
+
+        {showChecklist && (
+          <a href="/mortgage-checklist" className="btn btn-secondary mt-4">
+            Apply Now
+          </a>
+        )}
+      </div>
     </div>
   );
 };

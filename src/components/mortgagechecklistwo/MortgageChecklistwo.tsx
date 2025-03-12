@@ -1,7 +1,6 @@
 import React from "react";
-import "./MortgageChecklist.css";
+import "./MortgageChecklistwo.css";
 import gmLogo from "../../assets/gmlogo-black.webp";
-import greenmortgagechecklist from "../../assets/greenmortgagechecklist.pdf";
 
 const MortgageChecklist: React.FC = () => {
   return (
@@ -91,35 +90,6 @@ const MortgageChecklist: React.FC = () => {
           <li>5% of loan for below 70,000,000</li>
           <li>3% of loan for 70,000,000 & above</li>
         </ul>
-
-        <h2 className="text-xl font-semibold mb-2 applicant-details">
-          Applicant Details:
-        </h2>
-        <p>Name of Applicant:</p>
-        <p>Property Name/Type:</p>
-        <p>Property Location:</p>
-        <p>Property Title:</p>
-        <p>Cost of Property:</p>
-        <p>Loan Amount:</p>
-        <p>Date:</p>
-        <p>Signature:</p>
-        <p>Representative in charge:</p>
-      </div>
-
-      <div className="button-container">
-        <a
-          href={greenmortgagechecklist}
-          download="greenmortgagechecklist.pdf"
-          className="checklist-download-btn"
-        >
-          Download Checklist
-        </a>
-        <a
-          href="https://forms.gle/m6hSnRox8JwuNoLi9"
-          className="checklist-submit-btn"
-        >
-          Upload Document
-        </a>
       </div>
     </div>
   );

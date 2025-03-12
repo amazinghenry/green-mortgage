@@ -48,7 +48,8 @@
 }
 
 .navbar a:hover{
-    color: #9dcfc5;
+   text-decoration: underline;
+   padding-bottom: 5px;
 }
 
 @media (max-width: 768px){

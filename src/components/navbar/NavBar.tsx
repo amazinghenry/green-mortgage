@@ -18,13 +18,12 @@ const NavBar = () => {
           <li>
             <a href="/mortgage-calculator">Calculator</a>
           </li>
-          {/* <li>
           <li>
-            <a href="#">Testimonial</a>
+            <a href="/mortgagechecklist">Checklist</a>
           </li>
           <li>
-            <a href="#">Contact</a>
-          </li> */}
+            <a href="/mortgage-calculator">Submit Document</a>
+          </li>
         </ul>
 
         <a href="/">

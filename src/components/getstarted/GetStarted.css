@@ -1,6 +1,6 @@
 .getStartedRibbonContainer {
     /* background: url('../../assets/getstartedbgimage.webp'), var(--pri-clr); */
-    background-color: #64bf84;
+    background-color: #0BB14B;
     /* filter: grayscale(100%); */
     background-position: center;
     background-repeat: no-repeat;
@@ -31,8 +31,8 @@
 .getStartedButton {
     font-family: var(--fontpops);
     font-size: 14px;
-    background-color: var(--pri-clr);
-    color: #fff;
+    background-color: #fff;
+    color: #0BB14B;
     display: block;
     max-width: max-content;
     padding: 10px 36px;

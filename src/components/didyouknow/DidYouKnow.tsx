@@ -18,9 +18,6 @@ const DidYouKnow = () => {
             faster processing times, making homeownership a reality for more
             Nigerians.
           </p>
-          {/* <a href="#" className="didYouKnowButton">
-            GET TO KNOW US
-          </a> */}
         </div>
         <img
           src={homeOwner}

@@ -9,17 +9,17 @@ const Footer = () => {
     <footer className="footer container">
       <div className="footerContainer">
         <div className="footerSection">
-          <h3>Our Pages</h3>
+          <h3>Pages</h3>
           <ul>
             <li>
-              <a href="#">Our Team</a>
+              <a href="/">Home</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#">Careers</a>
             </li>
             <li>
               <a href="#">Contact Us</a>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="footerSection">
@@ -29,7 +29,7 @@ const Footer = () => {
               <Link to="/mortgage-calculator">Calculator</Link>
             </li>
             <li>
-              <Link to="/mortgage-checklist">Check List</Link>
+              <Link to="/mortgagechecklist">Check List</Link>
             </li>
           </ul>
         </div>
@@ -37,11 +37,19 @@ const Footer = () => {
           <h3>Let's Connect</h3>
           <ul>
             <li>
-              <a href="tel:2486867270">248-686-7270</a>
+              <a href="tel:09112941135">09112941135</a>
             </li>
-            <li>6755 Telegraph Rd Suite 330, Bloomfield Hills, MI 48301</li>
             <li>
-              <a href="#">Follow us on Instagram</a>
+              Island Office: 28 Daniyan Natalia Street Off Adebayo Dorothy
+              Street, Lekki Phase 1, Lagos
+            </li>
+            <li>
+              Mainland Office: 7b Prince Bode Oluwo Street, Maryland, Lagos
+            </li>
+            <li>
+              <a href="https://www.instagram.com/green.mortgage/?igsh=MWw3dnV6ZWxqbG91&utm_source=ig_contact_invite#">
+                Follow us on Instagram
+              </a>
             </li>
           </ul>
         </div>

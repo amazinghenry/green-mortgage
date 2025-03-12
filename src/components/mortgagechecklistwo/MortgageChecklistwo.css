@@ -1,0 +1,60 @@
+.mortgage-checklist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 60px 0;
+
+}
+
+.checklist-download-btn {
+    margin-top: 30px;
+    background-color: var(--pri-clr);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.gm-logo  {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.submit-document-btn {
+    margin-top: 30px;
+    background-color: var(--pri-clr);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media print {
+    .no-print {
+      display: none;
+    }
+    .navbar {
+      display: none;
+    }
+    .print-container {
+      width: 100%;
+    }
+  }

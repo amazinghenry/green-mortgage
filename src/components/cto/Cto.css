@@ -1,0 +1,30 @@
+.cto {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cto p {
+    width: 600px;
+    margin: 0 auto 40px;
+}
+
+.submit-document-btn {
+    margin: 0 auto;
+    font-family: var(--fontpops);
+    font-size: 14px;
+    background-color: var(--pri-clr);
+    color: #fff;
+    display: block;
+    max-width: max-content;
+    padding: 10px 36px;
+    border-radius: 18px;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 600px) {
+    .cto p {
+        width: 100%;
+    }
+    
+}

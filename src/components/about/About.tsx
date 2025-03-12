@@ -18,7 +18,7 @@ const About = () => {
         <ul>
           <li>
             <span className="bold-list">Competitive Interest Rates</span> –
-            Enjoy affordable rates that make homeownership within
+            Enjoy affordable rates that make homeownership within reach.
           </li>
           <li>
             <span className="bold-list"> Payment Options </span> – Choose a
@@ -26,7 +26,7 @@ const About = () => {
           </li>
           <li>
             <span className="bold-list"> Easy Application Process </span> – Get
-            started with less paperwork and no complicated procedures
+            started with less paperwork and no complicated procedures.
           </li>
           <li>
             <span className="bold-list">Faster Approval Time </span> – Get your

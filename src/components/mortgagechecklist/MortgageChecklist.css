@@ -9,31 +9,40 @@
 }
 
 .checklist-download-btn {
-    margin-top: 30px;
-    background-color: var(--pri-clr);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
+  margin-top: 30px;
+  background-color: var(--pri-clr);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .gm-logo  {
-    width: 120px;
-    margin-bottom: 20px;
+  width: 120px;
+  margin-bottom: 20px;
 }
 
-@media print {
-    .no-print {
-      display: none;
-    }
-    .navbar {
-      display: none;
-    }
-    .print-container {
-      width: 100%;
-    }
-  }
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.checklist-submit-btn {
+  margin-top: 30px;
+  background-color: var(--pri-clr);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
