@@ -7,24 +7,74 @@ const MortgageCalculator = () => {
 
   const scriptUrl =
     "https://script.google.com/macros/s/AKfycbzlpPlvdxGxfpU-pvP5HB_LUN3WX23pmNkKTnq7sFvpaFxIt2vCErLZgk3L68q8bGbQ/exec";
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [dob, setDob] = useState("");
-  const [employmentStatus, setEmploymentStatus] = useState("Employed");
-  const [propertyTitle, setPropertyTitle] = useState("");
-  const [propertyLocation, setPropertyLocation] = useState("");
-  const [propertyType, setPropertyType] = useState("");
-  const [propertyCost, setPropertyCost] = useState("");
-  const [equity, setEquity] = useState(0);
-  const [principal, setPrincipal] = useState(0);
-  const [period, setPeriod] = useState(12);
-  const [fundingSource, setFundingSource] = useState("FHF");
-  const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
-  const [monthlySalary, setMonthlySalary] = useState("");
-  const [otherIncome, setOtherIncome] = useState("");
+  // const [fullName, setFullName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [dob, setDob] = useState("");
+  // const [employmentStatus, setEmploymentStatus] = useState("Employed");
+  // const [propertyTitle, setPropertyTitle] = useState("");
+  // const [propertyLocation, setPropertyLocation] = useState("");
+  // const [propertyType, setPropertyType] = useState("");
+  // const [propertyCost, setPropertyCost] = useState("");
+  // const [equity, setEquity] = useState(0);
+  // const [principal, setPrincipal] = useState(0);
+  // const [period, setPeriod] = useState(12);
+  // const [fundingSource, setFundingSource] = useState("FHF");
+  // const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
+  // const [monthlySalary, setMonthlySalary] = useState("");
+  // const [otherIncome, setOtherIncome] = useState("");
+  // const [qualificationStatus, setQualificationStatus] = useState<string | null>(
+  //   null
+  // );
+  // const [error, setError] = useState<string | null>(null);
+  // const [showChecklist, setShowChecklist] = useState(false);
+
+  const [fullName, setFullName] = useState(
+    localStorage.getItem("fullName") || ""
+  );
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+  const [phone, setPhone] = useState(localStorage.getItem("phone") || "");
+  const [dob, setDob] = useState(localStorage.getItem("dob") || "");
+  const [employmentStatus, setEmploymentStatus] = useState(
+    localStorage.getItem("employmentStatus") || "Employed"
+  );
+  const [propertyTitle, setPropertyTitle] = useState(
+    localStorage.getItem("propertyTitle") || ""
+  );
+  const [propertyLocation, setPropertyLocation] = useState(
+    localStorage.getItem("propertyLocation") || ""
+  );
+  const [propertyType, setPropertyType] = useState(
+    localStorage.getItem("propertyType") || ""
+  );
+  const [propertyCost, setPropertyCost] = useState(
+    localStorage.getItem("propertyCost") || ""
+  );
+  const [equity, setEquity] = useState(
+    Number(localStorage.getItem("equity")) || 0
+  );
+  const [principal, setPrincipal] = useState(
+    Number(localStorage.getItem("principal")) || 0
+  );
+  const [period, setPeriod] = useState(
+    Number(localStorage.getItem("period")) || 12
+  );
+  const [fundingSource, setFundingSource] = useState(
+    localStorage.getItem("fundingSource") || "FHF"
+  );
+  const [monthlySalary, setMonthlySalary] = useState(
+    localStorage.getItem("monthlySalary") || ""
+  );
+  const [otherIncome, setOtherIncome] = useState(
+    localStorage.getItem("otherIncome") || ""
+  );
+  const [monthlyPayment, setMonthlyPayment] = useState<number | null>(
+    localStorage.getItem("monthlyPayment")
+      ? Number(localStorage.getItem("monthlyPayment"))
+      : null
+  );
   const [qualificationStatus, setQualificationStatus] = useState<string | null>(
-    null
+    localStorage.getItem("qualificationStatus") || null
   );
   const [error, setError] = useState<string | null>(null);
   const [showChecklist, setShowChecklist] = useState(false);
@@ -159,12 +209,14 @@ const MortgageCalculator = () => {
       (principal * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -period));
 
     setMonthlyPayment(pmt);
+    localStorage.setItem("monthlyPayment", pmt.toFixed(2));
 
     const totalIncome = Number(monthlySalary) + Number(otherIncome);
     const qualification1 = (pmt / totalIncome) * 100;
     const qualificationMsg =
       qualification1 > 40 ? "Not Qualified" : "Qualified";
     setQualificationStatus(qualificationMsg);
+    localStorage.setItem("qualificationStatus", qualificationMsg);
     setShowChecklist(true);
 
     // google sheets
@@ -183,6 +235,7 @@ const MortgageCalculator = () => {
         }
 
         console.log("Form submitted successfully");
+        localStorage.setItem("formSubmitted", "true");
       } catch (error) {
         console.error("Error submitting form:", error);
       }
@@ -452,10 +505,25 @@ const MortgageCalculator = () => {
         </form>
 
         {showChecklist && (
-          <a href="/mortgage-checklist" className="btn btn-secondary mt-4">
-            Apply Now
-          </a>
+          <>
+            <p className="m-4 text-center">
+              If you are already qualified, click Apply to continue.
+            </p>
+            <a
+              href="/mortgage-checklist"
+              className="btn btn-secondary mt-4 apply-btn"
+            >
+              Apply Now
+            </a>
+          </>
         )}
+
+        <div className="mt-4 submission-link-container">
+          Already completed mortgage calculation and qualified?
+          <a href="submit-documents" className="submission-link">
+            Kindly submit your documents here
+          </a>
+        </div>
       </div>
     </div>
   );

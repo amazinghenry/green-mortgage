@@ -1,0 +1,27 @@
+.faq-container {
+    padding: 60px 20px;
+    background-color: #D9EADD;
+}
+
+.accordion-button {
+    color: var(--pri-clr);
+    font-family: var(--fontcrimps);
+}
+
+.accordion-body {
+    color: var(--grey4-clr);
+    font-family: var(--fontpops);
+}
+
+.faq-title {
+    font-family: var(--fontpops);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .faq-container {
+        padding: 60px 0px;
+    }
+}

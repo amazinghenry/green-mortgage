@@ -1,13 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --pri-clr: #0BB14B;
   --grey1-clr: #F2F2F2;
   --grey2-clr: #efefef;
   --grey3-clr: #ebebeb;
-  --grey3-clr: #737373;
+  --grey4-clr: #737373;
   /* font */
 
   --fontpops: "Poppins", sans-serif;

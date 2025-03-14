@@ -4,12 +4,14 @@ import About from "./components/about/About";
 import "./App.css";
 import DidYouKnow from "./components/didyouknow/DidYouKnow";
 import MortgageChecklist from "./components/mortgagechecklist/MortgageChecklist";
-import MortgageChecklistwo from "./components/mortgagechecklistwo/MortgageChecklistwo";
 import Footer from "./components/footer/Footer";
 import GetStartedRibbon from "./components/getstarted/GetStarted";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MortgageCalculator from "./components/mortgagecalculator/MortgageCalculator";
 import Cto from "./components/cto/Cto";
+import SignIn from "./components/signin/SignIn";
+import SubmitDocuments from "./components/submitdocuments/SubmitDocuments";
+import FAQComponent from "./components/faqs/FAQs";
 import NotFound from "./components/notfound/NotFound";
 
 function App() {
@@ -37,10 +39,19 @@ function App() {
         />
 
         <Route
-          path="mortgagechecklist"
+          path="submit-documents"
           element={
             <>
-              <MortgageChecklistwo />
+              <SubmitDocuments />
+            </>
+          }
+        />
+
+        <Route
+          path="signin"
+          element={
+            <>
+              <SignIn />
             </>
           }
         />
@@ -55,6 +66,7 @@ function App() {
               <About />
               <DidYouKnow />
               <GetStartedRibbon />
+              <FAQComponent />
               <Footer />
             </>
           }

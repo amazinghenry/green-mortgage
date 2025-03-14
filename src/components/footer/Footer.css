@@ -4,11 +4,19 @@
     color: #333;
   }
   
-  .footerContainer {
+  /* .footerContainer {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    gap: 20px;
+  } */
+
+  .footerContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: start;
     gap: 20px;
   }
   
@@ -63,4 +71,11 @@
     color: #666;
     border-top: 1px solid #ddd;
     padding-top: 10px;
+  }
+
+  @media screen and (max-width: 768px){
+    
+  .footerContainer {
+    grid-template-columns: 1fr;
+  }
   }

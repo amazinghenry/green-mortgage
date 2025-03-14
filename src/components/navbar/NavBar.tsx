@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import gmLogo from "../../assets/gmlogo-white.webp";
+import gmLogo from "../../assets/greenmortgagelogowhite.png";
 
 const NavBar = () => {
   return (
@@ -19,10 +19,10 @@ const NavBar = () => {
             <a href="/mortgage-calculator">Calculator</a>
           </li>
           <li>
-            <a href="/mortgagechecklist">Checklist</a>
+            <a href="/mortgage-checklist">Checklist</a>
           </li>
           <li>
-            <a href="/mortgage-calculator">Submit Document</a>
+            <a href="/submit-documents">Submit Document</a>
           </li>
         </ul>
 
