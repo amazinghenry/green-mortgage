@@ -1,16 +1,9 @@
 import "./SubmitDocuments.css";
-// import cloudImage from "../../assets/cloud-image.webp";
 import mortgageChecklistPDF from "../../assets/greenmortgagechecklist.pdf";
 
 const SubmitDocuments = () => {
   return (
     <div className="submit-documents-container container">
-      {/* <img
-        src={cloudImage}
-        alt="Cloud Upload"
-        className="img-fluid cloud-image-file"
-      /> */}
-
       <div className="document-submission-content">
         <h1>Have you checked the mortgage calculator? Are you qualified?</h1>
 
