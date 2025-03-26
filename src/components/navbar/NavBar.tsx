@@ -19,7 +19,9 @@ const NavBar = () => {
             <a href="/mortgage-calculator">Calculator</a>
           </li>
           <li>
-            <a href="/mortgage-checklist">Checklist</a>
+            <a href="/mortgage-checklistandconsentform">
+              Checklist/Consent Form
+            </a>
           </li>
           <li>
             <a href="/submit-documents">Submit Document</a>

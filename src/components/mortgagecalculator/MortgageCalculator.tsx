@@ -510,7 +510,7 @@ const MortgageCalculator = () => {
               If you are already qualified, click Apply to continue.
             </p>
             <a
-              href="/mortgage-checklist"
+              href="/mortgage-checklistandconsentform"
               className="btn btn-secondary mt-4 apply-btn"
             >
               Apply Now

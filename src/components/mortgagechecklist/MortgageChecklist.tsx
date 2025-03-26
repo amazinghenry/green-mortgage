@@ -92,7 +92,7 @@ const MortgageChecklist: React.FC = () => {
         </ul>
         <h2 className="text-xl font-semibold mb-2">Facilitation Fee:</h2>
         <ul className="list-disc list-inside mb-4">
-          <li>5% of loan for amount below 70,000,00 Naira</li>
+          <li>5% of loan for amount below 70,000,000 Naira</li>
           <li>3% of loan for amount 70,000,000 Naira & above</li>
         </ul>
         <hr />

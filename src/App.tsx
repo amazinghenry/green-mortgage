@@ -30,7 +30,7 @@ function App() {
           }
         />
         <Route
-          path="mortgage-checklist"
+          path="mortgage-checklistandconsentform"
           element={
             <>
               <MortgageChecklist />
