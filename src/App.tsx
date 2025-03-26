@@ -9,7 +9,6 @@ import GetStartedRibbon from "./components/getstarted/GetStarted";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MortgageCalculator from "./components/mortgagecalculator/MortgageCalculator";
 import Cto from "./components/cto/Cto";
-import SignIn from "./components/signin/SignIn";
 import SubmitDocuments from "./components/submitdocuments/SubmitDocuments";
 import FAQComponent from "./components/faqs/FAQs";
 import NotFound from "./components/notfound/NotFound";
@@ -43,15 +42,6 @@ function App() {
           element={
             <>
               <SubmitDocuments />
-            </>
-          }
-        />
-
-        <Route
-          path="signin"
-          element={
-            <>
-              <SignIn />
             </>
           }
         />
