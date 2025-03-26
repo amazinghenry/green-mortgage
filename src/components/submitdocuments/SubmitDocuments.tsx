@@ -8,7 +8,7 @@ const SubmitDocuments = () => {
       {/* <img
         src={cloudImage}
         alt="Cloud Upload"
-        className="img-fluid cloud-image"
+        className="img-fluid cloud-image-file"
       /> */}
 
       <div className="document-submission-content">
