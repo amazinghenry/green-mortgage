@@ -26,7 +26,7 @@ const MortgageChecklist: React.FC = () => {
           <li>Pay slip for 6 months</li>
           <li>
             Evidence of equity (Account statement showing all transfers to the
-            developer) OR Minimum{" "}
+            developer) OR Minimum
             <ul>
               <li>10% equity contribution for FHF</li>
               <li>30% equity contribution for PMI</li>
@@ -92,8 +92,11 @@ const MortgageChecklist: React.FC = () => {
         </ul>
         <h2 className="text-xl font-semibold mb-2">Facilitation Fee:</h2>
         <ul className="list-disc list-inside mb-4">
-          <li>5% of loan for amount below 70,000,000 Naira</li>
-          <li>3% of loan for amount 70,000,000 Naira & above</li>
+          <li>
+            5% of loan for amount (Non- refundable administrative fee of 300,000
+            Naira inclusive in the facilitation cost). Facilitation fee less
+            admin charge is refundable in case of loan non-approval.
+          </li>
         </ul>
         <hr />
         <h2 className="text-xl font-semibold mb-2 applicant-details">

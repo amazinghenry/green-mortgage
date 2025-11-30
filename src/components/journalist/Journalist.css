@@ -1,0 +1,52 @@
+.journalist-container {
+    padding: 60px 20px;
+    background-color: #efefef;
+}
+
+.journalist-application-title {
+    font-weight: 700;
+    color: #4d4d4d;
+    text-align: center;
+}
+
+.journalist-application-subtitle {
+    font-weight: 400;
+    color: #737373;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.journalist-applicant-profile {
+   font-weight: 400;
+   font-size: 1.5em;
+    color: #737373;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.journalist-form {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.employement-select,
+.full-name,
+.dob,
+.annual-salary
+ {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.journalist-submit-button {
+    background-color: var(--pri-clr);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}

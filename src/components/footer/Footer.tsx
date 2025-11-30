@@ -18,6 +18,9 @@ const Footer = () => {
               <Link to="/mortgage-calculator">Calculator</Link>
             </li>
             <li>
+              <Link to="/journalist-application">Journalist Application</Link>
+            </li>
+            <li>
               <Link to="/mortgage-checklistandconsentform">
                 Checklist & Consent Form
               </Link>

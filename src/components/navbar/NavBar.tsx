@@ -19,6 +19,9 @@ const NavBar = () => {
             <a href="/mortgage-calculator">Calculator</a>
           </li>
           <li>
+            <a href="/journalist-application">Journalist Application</a>
+          </li>
+          <li>
             <a href="/mortgage-checklistandconsentform">
               Checklist/Consent Form
             </a>

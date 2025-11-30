@@ -7,27 +7,6 @@ const MortgageCalculator = () => {
 
   const scriptUrl =
     "https://script.google.com/macros/s/AKfycbzlpPlvdxGxfpU-pvP5HB_LUN3WX23pmNkKTnq7sFvpaFxIt2vCErLZgk3L68q8bGbQ/exec";
-  // const [fullName, setFullName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
-  // const [dob, setDob] = useState("");
-  // const [employmentStatus, setEmploymentStatus] = useState("Employed");
-  // const [propertyTitle, setPropertyTitle] = useState("");
-  // const [propertyLocation, setPropertyLocation] = useState("");
-  // const [propertyType, setPropertyType] = useState("");
-  // const [propertyCost, setPropertyCost] = useState("");
-  // const [equity, setEquity] = useState(0);
-  // const [principal, setPrincipal] = useState(0);
-  // const [period, setPeriod] = useState(12);
-  // const [fundingSource, setFundingSource] = useState("FHF");
-  // const [monthlyPayment, setMonthlyPayment] = useState<number | null>(null);
-  // const [monthlySalary, setMonthlySalary] = useState("");
-  // const [otherIncome, setOtherIncome] = useState("");
-  // const [qualificationStatus, setQualificationStatus] = useState<string | null>(
-  //   null
-  // );
-  // const [error, setError] = useState<string | null>(null);
-  // const [showChecklist, setShowChecklist] = useState(false);
 
   const [fullName, setFullName] = useState(
     localStorage.getItem("fullName") || ""
@@ -114,7 +93,9 @@ const MortgageCalculator = () => {
     setError(null);
     setPropertyCost(cost.toString());
 
-    const equityPercentage = fundingSource === "PMI" ? 0.3 : 0.1;
+    let equityPercentage = 0.1;
+    if (fundingSource === "PMI") equityPercentage = 0.3;
+    else if (fundingSource === "MRIEF") equityPercentage = 0.09;
     const calculatedEquity = cost * equityPercentage;
     const calculatedPrincipal = cost - calculatedEquity;
 
@@ -159,13 +140,15 @@ const MortgageCalculator = () => {
       return false;
     }
 
-    if (fundingSource === "FHF" && principal >= 70000000) {
-      setError("FHF funding is only available for loans less than 70 million.");
+    if (fundingSource === "FHF" && principal >= 100000000) {
+      setError(
+        "FHF funding is only available for loans less than 100 million."
+      );
       return false;
     }
-    if (fundingSource === "PMI" && principal < 70000000) {
+    if (fundingSource === "PMI" && principal < 100000000) {
       setError(
-        "PMI funding is only available for loans greater than 70 million."
+        "PMI funding is only available for loans greater than 100 million."
       );
       return false;
     }
@@ -202,8 +185,13 @@ const MortgageCalculator = () => {
 
     if (!validateInput()) return;
 
-    const interestRate = fundingSource === "FHF" ? 0.162 : 0.285;
+    let interestRate = 0.09; // FHF default
+    if (fundingSource === "PMI") interestRate = 0.285;
+    else if (fundingSource === "MRIEF") interestRate = 0.0975;
+
     const monthlyRate = interestRate / 12;
+
+    // const interestRate = fundingSource === "FHF" ? 0.09 : 0.285; // PREVIOUS TO "FHF" ? 0.162 : 0.285;
 
     const pmt =
       (principal * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -period));
@@ -387,10 +375,9 @@ const MortgageCalculator = () => {
                 name="fundingSource"
                 required
               >
-                <option value="FHF">FHF - Loans below 70M </option>
-                {/* 16.2% Interest */}
-                <option value="PMI">PMI - Loans above 70M</option>
-                {/* 28.5% Interest */}
+                <option value="PMI">PMI - Loans above 100,000,000 </option>
+                <option value="FHF">FHF - Loans below 100,000,000 </option>
+                <option value="MRIEF">MRIEF - Loans below 100,000,000 </option>
               </select>
             </div>
 

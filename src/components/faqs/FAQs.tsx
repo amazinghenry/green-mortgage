@@ -19,20 +19,20 @@ const FAQs = [
   },
   {
     question: "How much loan can I access with FHF?",
-    answer: "63M & below",
+    answer: "100M or below",
   },
   {
     question: "How much loan can I access with PMI?",
-    answer: "Above 63M",
+    answer: "Above 100M",
   },
   {
     question: "What's the maximum property cost funded by FHF?",
-    answer: "70M",
+    answer: "100M",
   },
   {
     question: "What's the maximum property cost funded by PMI?",
     answer:
-      "Above 70M to 500M for individuals, Above 70M to 2Bn for corporate organisations",
+      "Above 100M to 500M for individuals, Above 100M to 2Bn for corporate organisations",
   },
   {
     question: "Can corporate organisations apply?",

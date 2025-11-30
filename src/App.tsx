@@ -13,6 +13,7 @@ import SignIn from "./components/signin/SignIn";
 import SubmitDocuments from "./components/submitdocuments/SubmitDocuments";
 import FAQComponent from "./components/faqs/FAQs";
 import NotFound from "./components/notfound/NotFound";
+import Journalist from "./components/journalist/Journalist";
 
 function App() {
   return (
@@ -43,6 +44,14 @@ function App() {
           element={
             <>
               <SubmitDocuments />
+            </>
+          }
+        />
+        <Route
+          path="journalist-application"
+          element={
+            <>
+              <Journalist />
             </>
           }
         />
